@@ -34,13 +34,13 @@ exports.adiciona_um_empregado = function(req, res){
 
 //PUT   
 exports.atualiza_um_empregado = function(req, res) {
-    empregado.findOneAndupdate({_id: req.params.empregadoId}, req.body, {new: true}, 
+    empregado.findOneAndUpdate({_id: req.params.empregadoId}, req.body, {new: true}, 
         function(err, empregado){
             if(err){
                 res.send(err)
             }
             res.json(empregado)
-    })
+    });
 }
 
 //DELETE

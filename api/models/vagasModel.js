@@ -6,7 +6,7 @@ var vagasSchema = Schema({
         type: String
     },
     salario: {
-        type: Number
+        type: String
     },
     horario: {
         type: String
@@ -19,7 +19,6 @@ var vagasSchema = Schema({
     },
     telefone: {
         type: String
-    
     }
 })
 

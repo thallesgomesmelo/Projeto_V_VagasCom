@@ -13,7 +13,7 @@ exports.lista_de_todas_as_vagas = function(req, res) {
 
 // GET ID
 exports.lista_de_uma_vaga = function(req, res) {
-    vagas.findOne({"_id": req.params.vagaId}, function(err, vagas){
+    vagas.findOne({"_id": req.params.vagasId}, function(err, vagas){
         if(err){
             res.send(err)
         }
@@ -34,7 +34,7 @@ exports.adiciona_uma_vaga = function(req, res){
 
 //PUT   
 exports.atualiza_uma_vaga = function(req, res) {
-    vagas.findOneAndUpdate({_id: req.params.vagaId}, req.body, {new: true}, 
+    vagas.findOneAndUpdate({_id: req.params.vagasId}, req.body, {new: true}, 
         function(err, vagas){
             if(err){
                 res.send(err)
@@ -45,7 +45,7 @@ exports.atualiza_uma_vaga = function(req, res) {
 
 //DELETE
 exports.remove_uma_vaga = function(req, res){
-    vagas.remove({_id: req.params.vagaId}, function(err, vagas){
+    vagas.remove({_id: req.params.vagasId}, function(err, vagas){
         if(err){
             req.send(err)
         }
