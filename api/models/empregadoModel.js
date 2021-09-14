@@ -6,7 +6,7 @@ var empregadoSchema = Schema({
         type: String
     },
     cpf: {
-        type: String
+        type: Number
     },
     dataNascimento: {
         type: String
@@ -18,16 +18,16 @@ var empregadoSchema = Schema({
         type: String
     },
     cep: {
-        type: String
+        type: Number
     },
     municipio: {
         type: String
     },
     telefone: {
-        type: String
+        type: Number
     },
     celular: {
-        type: String
+        type: Number
     },
     uf: {
         type: String
