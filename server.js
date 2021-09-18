@@ -4,6 +4,7 @@ const { Mongoose } = require('mongoose')
 app = express();
 port = process.env.PORT || 3000
 mongoose = require('mongoose')
+empregador = require('./api/models/empregadorModel')
 empregado = require('./api/models/empregadoModel')
 vagas = require('./api/models/vagasModel')
 entrevista = require('./api/models/entrevistaModel')
@@ -16,9 +17,11 @@ mongoose.connect('mongodb+srv://admin:ZmaEuGx99xHZRAWe@cluster0.rfhz0.mongodb.ne
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+const routesEmpregador = require('./api/routes/empregadorRoutes')
+routesEmpregador(app) 
 
-const routesEmpregador = require('./api/routes/empregadoRoutes')
-routesEmpregador(app)
+const routesEmpregado = require('./api/routes/empregadoRoutes')
+routesEmpregado(app)
 
 const routesVagas = require('./api/routes/vagasRoutes')
 routesVagas(app)

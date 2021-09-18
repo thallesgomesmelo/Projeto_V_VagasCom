@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-var empregadoSchema = Schema({
+var empregadorSchema = Schema({
     nome: {
         type: String
     },
-    cpf: {
+    cnpj: {
         type: Number
     },
-    dataNascimento: {
+    dataRegistroCnpj: {
         type: String
     },
     endereco: {
@@ -43,4 +43,4 @@ var empregadoSchema = Schema({
     }
 })
 
-module.exports = mongoose.model('empregado', empregadoSchema)
+module.exports = mongoose.model('empregador', empregadorSchema)
