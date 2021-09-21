@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const empregador = mongoose.model('empregado')
+const empregador = mongoose.model('empregador')
 
 // GET ALL
 exports.lista_todos_os_empregadores = function(req, res) {
