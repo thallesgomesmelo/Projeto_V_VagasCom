@@ -3,7 +3,7 @@ const vagas = mongoose.model('vagas')
 
 
 // GET ALL
-exports.lista_de_todas_as_vagas= function(req, res) {
+exports.lista_de_todas_as_vagas= function(req, res, next) {
     vagas.find({}, function(err, vagas){
         if(err){
             res.send(err)

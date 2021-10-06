@@ -1,20 +1,23 @@
 module.exports = function(app) {
     const SECRET = 'tarley'
     const vagasController = require('../controllers/vagasController')
+    const jwt = require('jsonwebtoken')
     
+    function verifyJWT(req, res, next){
+        const token = req.headers['x-access-token']
+        if (!token) return res.status(401).json({ auth: false, message: 'Token não informado.' })
+        
+        jwt.verify(token, SECRET, function(err, decoded) {
+          if (err) return res.status(500).json({ auth: false, message: 'Falhou na autenticação do token.' })
+          
+          // se tudo estiver ok, salva no request para uso posterior
+          req.userId = decoded.id
+          next()
+        })
+    }    
 
-function verifyJWT(req,res, next) {
-    const token=req.headers['x-access-token']
-    jwt.verify(token, SECRET, (err, decoded)=>{
-        if (err) return res.status(401).end()
-
-        req.userId= decoded.userId
-        next()
-    })
-}
- //comentario
-    app.route('/vagas',verifyJWT)
-        .get(vagasController.lista_de_todas_as_vagas)
+    app.route('/vagas')
+        .get(verifyJWT, vagasController.lista_de_todas_as_vagas)
         .post(vagasController.adiciona_uma_vaga)
 
     app.route('/vagas/:vagasId')
