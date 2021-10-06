@@ -3,9 +3,9 @@ const SECRET = 'tarley'
 const jwt = require ('jsonwebtoken')
 
 exports.loginToken = function(req,res, next){
-    if (req.body.user === 'tarley' && req.body.password === '123'){
+    if (req.body.nome === 'tarley' && req.body.senha === '123'){
       const id = 1
-      const token = jwt.sign({ id }, SECRET, { expiresIn: 300 })
+      const token = jwt.sign({ id }, SECRET, { expiresIn: 100 })
 
       return res.json({ auth: true, token: token});
     }
