@@ -38,6 +38,6 @@ routesEntrevista(app)
 const routesLogin = require('./api/routes/loginRoutes')
 routesLogin(app)
 
-app.listen(port)
+app.listen(port,()=>console.log("Executando servidor na porta "+port))
 
 
